@@ -1,0 +1,98 @@
+.pin-panel h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.pin-input-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.pin-input-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+}
+
+.pin-input-row button {
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pin-input-row button:not(:disabled):hover {
+  background: rgba(96, 165, 250, 0.25);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.pin-input-row button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pin-error {
+  color: #fca5a5;
+  font-size: 11.5px;
+  margin-bottom: 6px;
+}
+
+.pin-progress {
+  display: flex;
+  gap: 4px;
+}
+
+.pin-digit {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 2px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.pin-digit-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.pin-digit-status {
+  white-space: nowrap;
+}
+
+.pin-digit-check,
+.pin-digit-descend,
+.pin-digit-hover,
+.pin-digit-retract {
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.pin-digit-done {
+  border-color: rgba(52, 211, 153, 0.5);
+}
+
+.pin-digit-failed {
+  border-color: rgba(248, 113, 113, 0.6);
+}

@@ -2,7 +2,7 @@ import type { Vec3 } from '../kinematics/types'
 
 export type MotionCommand =
   | { type: 'JOG'; delta: Vec3 }
-  | { type: 'MOVE_TO'; target: Vec3 }
+  | { type: 'MOVE_TO'; target: Vec3; speed?: number } // speed (m/s) overrides the default distance-based duration
   | { type: 'HOME' }
 
 type Listener = (command: MotionCommand) => void

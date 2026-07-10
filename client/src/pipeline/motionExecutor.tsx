@@ -53,7 +53,8 @@ function applyJoints(q: JointVector) {
   JOINT_ORDER.forEach((name, i) => robot.setJointValue(name, q[i]))
 }
 
-function moveToDuration(dist: number): number {
+function moveToDuration(dist: number, speed?: number): number {
+  if (speed && speed > 0) return Math.max(0.15, dist / speed)
   return Math.max(0.4, (dist / 0.3) * 0.6)
 }
 
@@ -109,7 +110,7 @@ function MotionExecutor() {
             startPos,
             endPos: pending.target,
             startTime: performance.now(),
-            duration: moveToDuration(distance(startPos, pending.target)),
+            duration: moveToDuration(distance(startPos, pending.target), pending.speed),
           }
           telemetryRef.current.status = 'moving'
         }

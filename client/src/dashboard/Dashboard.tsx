@@ -5,6 +5,7 @@ import { JOINT_ORDER } from '../kinematics/jointOrder'
 import JointControls from './JointControls'
 import IkSelfTest from './IkSelfTest'
 import MoveToPanel from './MoveToPanel'
+import PinPanel from './PinPanel'
 import './Dashboard.css'
 
 const RAD_TO_DEG = 180 / Math.PI
@@ -84,6 +85,9 @@ function Dashboard() {
       </div>
       <div className="dashboard-section">
         <MoveToPanel />
+      </div>
+      <div className="dashboard-section">
+        <PinPanel />
       </div>
       <div className="dashboard-section">
         <JointControls />
