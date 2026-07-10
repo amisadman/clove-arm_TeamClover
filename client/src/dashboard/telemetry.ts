@@ -1,0 +1,8 @@
+export interface Telemetry {
+  jointAngles: Record<string, number>
+  tcp: { x: number; y: number; z: number }
+}
+
+export const telemetryRef: { current: Telemetry } = {
+  current: { jointAngles: {}, tcp: { x: 0, y: 0, z: 0 } },
+}

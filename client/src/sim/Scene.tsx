@@ -2,6 +2,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Grid } from '@react-three/drei'
 import RobotArm from './RobotArm'
 import KeyPanel from './KeyPanel'
+import TelemetryUpdater from './TelemetryUpdater'
 
 function Scene() {
   return (
@@ -37,6 +38,7 @@ function Scene() {
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <RobotArm />
         <KeyPanel />
+        <TelemetryUpdater />
       </group>
     </Canvas>
   )
