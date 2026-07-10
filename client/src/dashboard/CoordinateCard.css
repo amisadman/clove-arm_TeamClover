@@ -1,0 +1,35 @@
+.coordinate-card {
+  position: absolute;
+  top: 64px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  font-family: ui-monospace, Consolas, monospace;
+  z-index: 10;
+}
+
+.coordinate-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 90px;
+}
+
+.coordinate-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+}
+
+.coordinate-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1b1b1b;
+}
