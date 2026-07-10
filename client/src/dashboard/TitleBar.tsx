@@ -1,16 +1,6 @@
-import { useEffect, useState } from "react";
-import { getControllerCount, subscribeControllerCount } from "../controls/remoteStore";
 import "./TitleBar.css";
 
 function TitleBar() {
-  const [controllerCount, setControllerCount] = useState(getControllerCount());
-
-  useEffect(() => {
-    return subscribeControllerCount(() => {
-      setControllerCount(getControllerCount());
-    });
-  }, []);
-
   return (
     <div className="title-bar">
       <div>
