@@ -36,6 +36,7 @@
   border-radius: 8px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   min-width: 170px;
+  max-width: 260px;
 }
 
 .keymap-row {
@@ -49,4 +50,38 @@
 
 .keymap-row span:first-child {
   color: #9ca3af;
+}
+
+.keymap-section-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  margin: 10px 0 4px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.keymap-section-title:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.keymap-voice-row {
+  padding: 4px 0;
+}
+
+.keymap-voice-command {
+  display: block;
+  font-size: 11px;
+  color: #93c5fd;
+  word-break: break-word;
+}
+
+.keymap-voice-desc {
+  display: block;
+  font-size: 10.5px;
+  color: #9ca3af;
+  margin-top: 1px;
 }

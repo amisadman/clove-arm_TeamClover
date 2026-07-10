@@ -248,6 +248,51 @@ function speak(text: string) {
 }
 
 // ─────────────────────────────────────────────────────────────
+// Icons
+// ─────────────────────────────────────────────────────────────
+
+function MicIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20">
+      <rect
+        x="9"
+        y="2"
+        width="6"
+        height="12"
+        rx="3"
+        fill={filled ? 'currentColor' : 'none'}
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M5 10a7 7 0 0 0 14 0M12 19v3M8 22h8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+function ThinkingIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" className="voice-thinking-spinner">
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeDasharray="28 100"
+      />
+    </svg>
+  )
+}
+
+// ─────────────────────────────────────────────────────────────
 // Component
 // ─────────────────────────────────────────────────────────────
 
@@ -414,19 +459,32 @@ function VoiceControl() {
     }
   }, [listening])
 
+  const showStatus = listening || thinking || transcript.length > 0
+  const tone = listening ? (thinking ? 'thinking' : 'listening') : 'idle'
+
   return (
     <div className="voice-control">
+      {showStatus && (
+        <div className="voice-status">
+          {transcript && <span className="voice-transcript">"{transcript}"</span>}
+          <span className="voice-status-text">{thinking ? 'Thinking…' : status}</span>
+        </div>
+      )}
       <button
         type="button"
-        className={`voice-toggle ${listening ? 'voice-toggle-active' : ''}`}
+        className={`voice-mic-btn voice-mic-btn-${tone}`}
         onClick={() => setListening((v) => !v)}
+        aria-label={listening ? 'Stop voice control' : 'Start voice control'}
+        title={listening ? 'Stop voice control' : 'Start voice control'}
       >
-        {listening ? ' Listening' : ' Start Voice'}
+        {tone === 'listening' && (
+          <>
+            <span className="voice-pulse-ring" />
+            <span className="voice-pulse-ring voice-pulse-ring-delay" />
+          </>
+        )}
+        <span className="voice-mic-icon">{thinking ? <ThinkingIcon /> : <MicIcon filled={listening} />}</span>
       </button>
-      <div className="voice-status">
-        {transcript && <span className="voice-transcript">"{transcript}"</span>}
-        <span className="voice-status-text">{thinking ? 'Thinking…' : status}</span>
-      </div>
     </div>
   )
 }
