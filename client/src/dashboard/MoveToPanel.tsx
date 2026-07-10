@@ -25,7 +25,6 @@ function MoveToPanel() {
 
   return (
     <div className="move-to-panel">
-      <h2>Go To Target</h2>
       <div className="target-inputs">
         <input type="number" step="0.01" value={x} onChange={(event) => setX(event.target.value)} placeholder="x" />
         <input type="number" step="0.01" value={y} onChange={(event) => setY(event.target.value)} placeholder="y" />

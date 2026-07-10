@@ -1,21 +1,23 @@
 import Scene from './sim/Scene'
-import Dashboard from './dashboard/Dashboard'
 import TitleBar from './dashboard/TitleBar'
 import ToastHost from './dashboard/ToastHost'
 import Joystick from './controls/Joystick'
 import KeymapLegend from './controls/KeymapLegend'
-import VoiceControl from './controls/VoiceControl'
+import CoordinateCard from './dashboard/CoordinateCard'
+import StatusCard from './dashboard/StatusCard'
+import ControlDock from './dashboard/ControlDock'
 
 function App() {
   return (
     <div id="app">
       <Scene />
       <TitleBar />
-      <Dashboard />
+      <CoordinateCard />
+      <StatusCard />
       <ToastHost />
       <Joystick />
       <KeymapLegend />
-      <VoiceControl />
+      <ControlDock />
     </div>
   )
 }
