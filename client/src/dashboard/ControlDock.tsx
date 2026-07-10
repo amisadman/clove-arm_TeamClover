@@ -20,34 +20,38 @@ function ControlDock() {
   }
 
   return (
-    <div className="control-dock">
-      {active && (
-        <Popup key={active} title={POPUP_TITLES[active]} onClose={() => setActive(null)}>
-          {active === 'joints' ? <JointControls /> : <MoveToPanel />}
-        </Popup>
-      )}
+    <>
+      <div className="control-dock-left">
+        {active && (
+          <Popup key={active} title={POPUP_TITLES[active]} onClose={() => setActive(null)}>
+            {active === 'joints' ? <JointControls /> : <MoveToPanel />}
+          </Popup>
+        )}
 
-      <div className="pin-bar">
-        <PinPanel />
+        <div className="dock-triggers">
+          <button
+            type="button"
+            className={`dock-trigger${active === 'joints' ? ' dock-trigger-active' : ''}`}
+            onClick={() => toggle('joints')}
+          >
+            Joint Controls
+          </button>
+          <button
+            type="button"
+            className={`dock-trigger${active === 'moveTo' ? ' dock-trigger-active' : ''}`}
+            onClick={() => toggle('moveTo')}
+          >
+            Go To Target
+          </button>
+        </div>
       </div>
 
-      <div className="dock-triggers">
-        <button
-          type="button"
-          className={`dock-trigger${active === 'joints' ? ' dock-trigger-active' : ''}`}
-          onClick={() => toggle('joints')}
-        >
-          Joint Controls
-        </button>
-        <button
-          type="button"
-          className={`dock-trigger${active === 'moveTo' ? ' dock-trigger-active' : ''}`}
-          onClick={() => toggle('moveTo')}
-        >
-          Go To Target
-        </button>
+      <div className="control-dock-center">
+        <div className="pin-bar">
+          <PinPanel />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
