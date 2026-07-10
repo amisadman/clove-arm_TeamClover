@@ -4,7 +4,7 @@ import TitleBar from './dashboard/TitleBar'
 import ToastHost from './dashboard/ToastHost'
 import Joystick from './controls/Joystick'
 import KeymapLegend from './controls/KeymapLegend'
-import VoiceControl from './controls/Voicecontrol'
+import VoiceControl from './controls/VoiceControl'
 
 function App() {
   return (
