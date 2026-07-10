@@ -5,12 +5,41 @@
   right: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 14px 20px;
+  justify-content: space-between;
+  padding: 14px 24px;
   color: #e5e7eb;
   font-family: system-ui, "Segoe UI", Roboto, sans-serif;
   background: linear-gradient(to bottom, rgba(15, 16, 20, 0.65), transparent);
   pointer-events: none;
+}
+
+.title-bar-badge-container {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.controller-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(20, 22, 28, 0.75);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.controller-badge.connected {
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.controller-badge.disconnected {
+  color: #9ca3af;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .title-bar-name {

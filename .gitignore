@@ -1,2 +1,6 @@
 PHASE1_PLAN.md
 PHASE2_PLAN.md
+node_modules/
+.env
+dist/
+.DS_Store

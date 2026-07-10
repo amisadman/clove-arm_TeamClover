@@ -1,7 +1,6 @@
 # Clove Arm
+
 Developed by **Team Clover**:
-
-
 
 | Name                      | University              | GitHub / Portfolio                                     |
 | :------------------------ | :---------------------- | :----------------------------------------------------- |
@@ -17,12 +16,9 @@ Clove Arm is a complete robotic arm simulation that enables engineers to visuali
 
 Instead of testing experimental control software on expensive physical hardware, Clove Arm provides a safe simulation environment where every motion passes through the same deterministic control pipeline before execution.
 
-
-
 ---
 
-
-#  Overview
+# Overview
 
 The project recreates the complete workflow expected by **Vantage Robotics**, allowing users to:
 
@@ -38,11 +34,11 @@ The entire application is built around **one unified motion pipeline**, ensuring
 
 ---
 
-#  Project Goals
+# Project Goals
 
 The project satisfies **all required phases** of the hackathon problem statement and implements the **optional Agentic Voice Control extension**.
 
-###  Phase 1 — Visualization
+### Phase 1 — Visualization
 
 - Load and render the provided URDF robot model
 - Live 3D visualization
@@ -52,7 +48,7 @@ The project satisfies **all required phases** of the hackathon problem statement
 
 ---
 
-###  Phase 2 — Manual Control
+### Phase 2 — Manual Control
 
 Multiple control methods share the exact same motion pipeline.
 
@@ -63,7 +59,7 @@ Multiple control methods share the exact same motion pipeline.
 
 ---
 
-###  Phase 3 — Voice Control
+### Phase 3 — Voice Control
 
 Voice commands can control the robotic arm, including movement and rotation commands such as:
 
@@ -78,7 +74,7 @@ All recognized commands are translated into structured robot actions before exec
 
 ---
 
-###  Phase 3B — Agentic Voice Control (Bonus)
+### Phase 3B — Agentic Voice Control (Bonus)
 
 Natural language instructions are interpreted using an LLM-powered reasoning layer.
 
@@ -100,7 +96,7 @@ Every AI-generated action still passes through deterministic safety validation b
 
 ---
 
-###  Phase 4 — Autonomous PIN Entry
+### Phase 4 — Autonomous PIN Entry
 
 Given a 6-digit PIN, the robot:
 
@@ -115,7 +111,7 @@ No hardcoded animations are used—every movement follows the same motion pipeli
 
 ---
 
-###  Phase 5 — Electrical Schematic
+### Phase 5 — Electrical Schematic
 
 **Wokwi Link** : https://wokwi.com/projects/469131631081158657
 
@@ -129,7 +125,8 @@ The project includes a proof-of-concept electrical design illustrating:
 - Overall system architecture
 
 ---
-#  Architecture
+
+# Architecture
 
 ```
                   User Input
@@ -157,7 +154,7 @@ The project includes a proof-of-concept electrical design illustrating:
 
 Every interaction uses the same deterministic pipeline.
 
-#  Features
+# Features
 
 ## 3D Simulation
 
@@ -231,11 +228,6 @@ Safety validation includes:
 
 ---
 
-
-
-
-
-
 # Tech Stack
 
 ### Frontend
@@ -291,7 +283,7 @@ Open the URL shown by Vite.
 
 ---
 
-#  Usage
+# Usage
 
 You can control the robotic arm using:
 
@@ -325,17 +317,15 @@ are rejected safely.
 
 # Hackathon Deliverables
 
--  Browser-based 6-DOF robotic arm simulation
--  URDF visualization
--  Dashboard with live telemetry
--  Inverse kinematics
--  GUI joystick control
--  Keyboard control
--  Voice control
--  Autonomous PIN entry
--  Electrical schematic
--  Agentic natural language voice control (Bonus)
+- Browser-based 6-DOF robotic arm simulation
+- URDF visualization
+- Dashboard with live telemetry
+- Inverse kinematics
+- GUI joystick control
+- Keyboard control
+- Voice control
+- Autonomous PIN entry
+- Electrical schematic
+- Agentic natural language voice control (Bonus)
 
 ---
-
-

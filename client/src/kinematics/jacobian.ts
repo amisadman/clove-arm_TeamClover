@@ -14,7 +14,7 @@ export function computeJacobian(q: JointVector): Jacobian3x7 {
     const qh = q.slice()
     qh[i] += H
     const p = fk(qh)
-    J[0].push((p.x - base.x) / H)
+    J[0].push((p.x - base.x) / H) //
     J[1].push((p.y - base.y) / H)
     J[2].push((p.z - base.z) / H)
   }

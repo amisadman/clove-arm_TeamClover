@@ -1,0 +1,26 @@
+services:
+  # 1. Express + Socket.io Relay Backend Server
+  - type: web
+    name: vantage-sim-server
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 3001
+
+  # 2. Vite + React Frontend Client (Static Site)
+  - type: web
+    name: vantage-sim-client
+    env: static
+    plan: free
+    baseDir: client
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_SERVER_URL
+        fromService:
+          name: vantage-sim-server
+          type: web
+          property: host
