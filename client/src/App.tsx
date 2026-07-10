@@ -3,6 +3,7 @@ import Dashboard from './dashboard/Dashboard'
 import TitleBar from './dashboard/TitleBar'
 import ToastHost from './dashboard/ToastHost'
 import Joystick from './controls/Joystick'
+import KeymapLegend from './controls/KeymapLegend'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Dashboard />
       <ToastHost />
       <Joystick />
+      <KeymapLegend />
     </div>
   )
 }
