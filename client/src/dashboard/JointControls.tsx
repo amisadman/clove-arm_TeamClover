@@ -1,8 +1,11 @@
-import { useState, useSyncExternalStore } from 'react'
-import { getRobot, subscribeRobot } from '../sim/robotStore'
+import { useEffect, useState } from 'react'
+import { getRobot } from '../sim/robotStore'
+import { fk } from '../kinematics/solverTwin'
+import { JOINT_ORDER, type JointVector } from '../kinematics/jointOrder'
+import { emit } from '../pipeline/commandBus'
+import { telemetryRef } from './telemetry'
 import './JointControls.css'
 
-const JOINT_ORDER = ['joint_1', 'joint_2', 'joint_3', 'joint_4', 'joint_5', 'joint_6', 'stylus_pitch']
 const RAD_TO_DEG = 180 / Math.PI
 const DEG_TO_RAD = Math.PI / 180
 
@@ -13,44 +16,51 @@ const DEMO_POSE_DEG: Record<string, number> = {
 }
 
 function JointControls() {
-  const robot = useSyncExternalStore(subscribeRobot, getRobot)
-  const [values, setValues] = useState<Record<string, number>>({})
+  const [angles, setAngles] = useState<Record<string, number>>({})
 
-  if (!robot) return null
+  useEffect(() => {
+    const id = setInterval(() => {
+      setAngles({ ...telemetryRef.current.jointAngles })
+    }, 100)
+    return () => clearInterval(id)
+  }, [])
 
-  const names = JOINT_ORDER.filter((name) => robot.joints[name])
+  const names = JOINT_ORDER.filter((name) => name in angles || getRobot()?.joints[name])
 
-  const applyPose = (poseDeg: Record<string, number>) => {
-    const next: Record<string, number> = {}
-    names.forEach((name) => {
-      const rad = (poseDeg[name] ?? 0) * DEG_TO_RAD
-      robot.setJointValue(name, rad)
-      next[name] = rad
-    })
-    setValues(next)
+  const handleHome = () => {
+    emit({ type: 'HOME' })
+  }
+
+  const handleDemoPose = () => {
+    const demoQ: JointVector = JOINT_ORDER.map((name) => (DEMO_POSE_DEG[name] ?? 0) * DEG_TO_RAD)
+    const target = fk(demoQ)
+    emit({ type: 'MOVE_TO', target: { x: target.x, y: target.y, z: target.z } })
   }
 
   const handleChange = (name: string, rad: number) => {
-    robot.setJointValue(name, rad)
-    setValues((prev) => ({ ...prev, [name]: rad }))
+    getRobot()?.setJointValue(name, rad)
+    setAngles((prev) => ({ ...prev, [name]: rad }))
   }
+
+  if (names.length === 0) return null
 
   return (
     <div className="joint-controls">
       <h2>Joint Control</h2>
       <div className="pose-buttons">
-        <button type="button" onClick={() => applyPose({})}>
+        <button type="button" onClick={handleHome}>
           Home
         </button>
-        <button type="button" onClick={() => applyPose(DEMO_POSE_DEG)}>
+        <button type="button" onClick={handleDemoPose}>
           Demo pose
         </button>
       </div>
       {names.map((name) => {
-        const limit = robot.joints[name].limit
-        const lower = Number.isFinite(limit?.lower) ? limit.lower : -Math.PI
-        const upper = Number.isFinite(limit?.upper) ? limit.upper : Math.PI
-        const current = values[name] ?? (robot.joints[name].angle as number) ?? 0
+        const robot = getRobot()
+        const limit = robot?.joints[name]?.limit
+        const lower = Number.isFinite(limit?.lower) ? limit!.lower : -Math.PI
+        const upper = Number.isFinite(limit?.upper) ? limit!.upper : Math.PI
+        const current = angles[name] ?? 0
 
         return (
           <div className="slider-row" key={name}>

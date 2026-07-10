@@ -1,0 +1,64 @@
+.move-to-panel h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.target-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.target-inputs input {
+  width: 100%;
+  min-width: 0;
+  padding: 5px 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.target-inputs button {
+  padding: 5px 10px;
+  background: rgba(96, 165, 250, 0.18);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.target-inputs button:hover {
+  background: rgba(96, 165, 250, 0.32);
+}
+
+.key-quick-buttons {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+
+.key-quick-buttons button {
+  padding: 6px 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.key-quick-buttons button:hover {
+  background: rgba(242, 153, 26, 0.25);
+  border-color: rgba(242, 153, 26, 0.5);
+}

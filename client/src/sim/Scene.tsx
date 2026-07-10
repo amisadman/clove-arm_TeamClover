@@ -4,6 +4,7 @@ import { OrbitControls, Grid, Environment, ContactShadows } from '@react-three/d
 import RobotArm from './RobotArm'
 import KeyPanel from './KeyPanel'
 import TelemetryUpdater from './TelemetryUpdater'
+import MotionExecutor from '../pipeline/motionExecutor'
 
 function Scene() {
   return (
@@ -51,6 +52,7 @@ function Scene() {
         <RobotArm />
         <KeyPanel />
         <TelemetryUpdater />
+        <MotionExecutor />
       </group>
     </Canvas>
   )

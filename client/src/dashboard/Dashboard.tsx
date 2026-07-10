@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { telemetryRef } from './telemetry'
 import { getRobot } from '../sim/robotStore'
+import { JOINT_ORDER } from '../kinematics/jointOrder'
 import JointControls from './JointControls'
 import IkSelfTest from './IkSelfTest'
+import MoveToPanel from './MoveToPanel'
 import './Dashboard.css'
 
-const JOINT_ORDER = ['joint_1', 'joint_2', 'joint_3', 'joint_4', 'joint_5', 'joint_6', 'stylus_pitch']
 const RAD_TO_DEG = 180 / Math.PI
 
 interface JointReadout {
@@ -17,18 +18,20 @@ interface JointReadout {
 interface DashboardState {
   joints: JointReadout[]
   tcp: { x: number; y: number; z: number }
+  status: string
 }
 
 function Dashboard() {
   const [state, setState] = useState<DashboardState>({
     joints: [],
     tcp: { x: 0, y: 0, z: 0 },
+    status: 'idle',
   })
 
   useEffect(() => {
     const id = setInterval(() => {
       const robot = getRobot()
-      const { jointAngles, tcp } = telemetryRef.current
+      const { jointAngles, tcp, status } = telemetryRef.current
 
       const joints: JointReadout[] = JOINT_ORDER.filter((name) => name in jointAngles).map((name) => {
         const angle = jointAngles[name]
@@ -40,7 +43,7 @@ function Dashboard() {
         return { name, angleDeg: angle * RAD_TO_DEG, ratio }
       })
 
-      setState({ joints, tcp: { ...tcp } })
+      setState({ joints, tcp: { ...tcp }, status })
     }, 100)
 
     return () => clearInterval(id)
@@ -74,6 +77,13 @@ function Dashboard() {
           <span>Z</span>
           <span>{state.tcp.z.toFixed(3)}</span>
         </div>
+        <div className="tcp-row">
+          <span>Status</span>
+          <span>{state.status}</span>
+        </div>
+      </div>
+      <div className="dashboard-section">
+        <MoveToPanel />
       </div>
       <div className="dashboard-section">
         <JointControls />
