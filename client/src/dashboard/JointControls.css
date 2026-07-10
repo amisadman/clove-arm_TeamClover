@@ -1,0 +1,48 @@
+.joint-controls h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.pose-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.pose-buttons button {
+  flex: 1;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pose-buttons button:hover {
+  background: rgba(242, 153, 26, 0.25);
+  border-color: rgba(242, 153, 26, 0.5);
+}
+
+.slider-row {
+  margin-bottom: 8px;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  color: #cbd5e1;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.slider-row input[type='range'] {
+  width: 100%;
+  accent-color: #f2991a;
+}

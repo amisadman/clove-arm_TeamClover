@@ -10,7 +10,8 @@
   color: #e5e7eb;
   font-family: ui-monospace, Consolas, monospace;
   font-size: 13px;
-  pointer-events: none;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
 }
 
 .dashboard-section + .dashboard-section {
