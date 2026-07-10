@@ -130,28 +130,30 @@ The project includes a proof-of-concept electrical design illustrating:
 
 # Architecture
 
-```
-                  User Input
-                        │
-      ┌─────────────────┼─────────────────┐
-      │                 │                 │
- Keyboard          Joystick          Voice / AI
-      │                 │                 │
-      └─────────────────┴─────────────────┘
-                        │
-                Motion Command Bus
-                        │
-               Safety Validation
-                        │
-            Inverse Kinematics Solver
-                        │
-             Motion Planning Pipeline
-                        │
-               Robot Joint Controller
-                        │
-               3D Simulation Engine
-                        │
-             Telemetry & Dashboard
+```mermaid
+graph TD
+    subgraph Inputs [User Input]
+        Keyboard[Keyboard]
+        Joystick[Joystick]
+        Voice[Voice / AI]
+    end
+
+    Inputs --> Bus[Motion Command Bus]
+    Bus --> Safety[Safety Validation]
+    Safety --> IK[Inverse Kinematics Solver]
+    IK --> Planner[Motion Planning Pipeline]
+    Planner --> Controller[Robot Joint Controller]
+    Controller --> Engine[3D Simulation Engine]
+    Engine --> Telemetry[Telemetry & Dashboard]
+
+    style Inputs fill:#1e1e1e,stroke:#333,stroke-width:1px,color:#fff
+    style Bus fill:#d7bf66,stroke:#7d651c,stroke-width:1px,color:#121212
+    style Safety fill:#f44336,stroke:#d32f2f,stroke-width:1px,color:#fff
+    style IK fill:#2196f3,stroke:#1976d2,stroke-width:1px,color:#fff
+    style Planner fill:#4caf50,stroke:#388e3c,stroke-width:1px,color:#fff
+    style Controller fill:#2a2a2a,stroke:#333,stroke-width:1px,color:#fff
+    style Engine fill:#2a2a2a,stroke:#333,stroke-width:1px,color:#fff
+    style Telemetry fill:#2a2a2a,stroke:#333,stroke-width:1px,color:#fff
 ```
 
 Every interaction uses the same deterministic pipeline.
@@ -265,7 +267,7 @@ Safety validation includes:
 Clone the repository
 
 ```bash
-git clone https://github.com/<your-org>/clove-arm.git
+git clone https://github.com/amisadman/clove-arm.git
 ```
 
 Install dependencies
