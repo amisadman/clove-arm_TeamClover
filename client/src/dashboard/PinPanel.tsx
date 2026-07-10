@@ -56,6 +56,7 @@ function PinPanel() {
 
   return (
     <div className="pin-panel">
+      <h2>Autonomous PIN Entry</h2>
       <div className="pin-input-row">
         <input
           type="text"

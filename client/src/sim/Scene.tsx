@@ -1,24 +1,19 @@
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import {
-  OrbitControls,
-  Grid,
-  Environment,
-  ContactShadows,
-} from "@react-three/drei";
-import RobotArm from "./RobotArm";
-import KeyPanel from "./KeyPanel";
-import TelemetryUpdater from "./TelemetryUpdater";
-import MotionExecutor from "../pipeline/motionExecutor";
+import { Suspense } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Grid, Environment, ContactShadows } from '@react-three/drei'
+import RobotArm from './RobotArm'
+import KeyPanel from './KeyPanel'
+import TelemetryUpdater from './TelemetryUpdater'
+import MotionExecutor from '../pipeline/motionExecutor'
 
 function Scene() {
   return (
     <Canvas
       shadows="soft"
       camera={{ position: [1.2, 0.9, 1.2], fov: 45 }}
-      style={{ width: "100%", height: "100%", background: "#dcdcdc" }}
+      style={{ width: '100%', height: '100%', background: '#15171c' }}
     >
-      <color attach="background" args={["#dcdcdc"]} />
+      <color attach="background" args={['#15171c']} />
 
       <ambientLight intensity={0.4} />
       <directionalLight
@@ -60,7 +55,7 @@ function Scene() {
         <MotionExecutor />
       </group>
     </Canvas>
-  );
+  )
 }
 
-export default Scene;
+export default Scene

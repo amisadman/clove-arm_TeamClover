@@ -1,13 +1,13 @@
-import { useKeyboard } from "./useKeyboard";
-import "./KeymapLegend.css";
+import { useKeyboard } from './useKeyboard'
+import './KeymapLegend.css'
 
 function KeymapLegend() {
-  const { fine, legendVisible } = useKeyboard();
+  const { fine, legendVisible } = useKeyboard()
 
   return (
     <div className="keymap-hint">
       {fine && <span className="keymap-fine-badge">FINE</span>}
-      <span className="keymap-toggle-hint">Shift ?</span>
+      <span className="keymap-toggle-hint">Press ? for keymap</span>
       {legendVisible && (
         <div className="keymap-legend">
           <div className="keymap-row">
@@ -41,7 +41,7 @@ function KeymapLegend() {
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default KeymapLegend;
+export default KeymapLegend

@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +26,5 @@ body,
 
 body {
   overflow: hidden;
-  background: #ffffff;
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
 }

@@ -1,6 +1,6 @@
 .joystick {
   position: absolute;
-  right: 24px;
+  left: 24px;
   bottom: 24px;
   display: flex;
   align-items: flex-end;
@@ -17,9 +17,7 @@
   backdrop-filter: blur(2px);
   position: relative;
   touch-action: none;
-  transition:
-    border-color 0.15s,
-    background 0.15s;
+  transition: border-color 0.15s, background 0.15s;
 }
 
 .joystick-pad-rejected {

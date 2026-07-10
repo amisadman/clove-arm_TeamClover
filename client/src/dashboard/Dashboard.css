@@ -1,0 +1,62 @@
+.dashboard {
+  position: absolute;
+  top: 64px;
+  left: 16px;
+  width: 280px;
+  padding: 12px 16px;
+  background: rgba(20, 22, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #e5e7eb;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.dashboard-section + .dashboard-section {
+  margin-top: 12px;
+}
+
+.dashboard h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.joint-row {
+  display: grid;
+  grid-template-columns: 90px 50px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.joint-name {
+  color: #cbd5e1;
+}
+
+.joint-angle {
+  text-align: right;
+}
+
+.joint-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.joint-bar-fill {
+  height: 100%;
+  background: #f2991a;
+}
+
+.tcp-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}

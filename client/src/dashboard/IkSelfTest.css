@@ -1,0 +1,37 @@
+.ik-self-test button {
+  width: 100%;
+  padding: 7px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ik-self-test button:hover {
+  background: rgba(96, 165, 250, 0.25);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.ik-self-test button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.ik-self-test-result {
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: #9ca3af;
+}
+
+.ik-orientation-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #9ca3af;
+  cursor: pointer;
+}
