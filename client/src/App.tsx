@@ -1,7 +1,7 @@
 import Scene from './sim/Scene'
 import Dashboard from './dashboard/Dashboard'
 import TitleBar from './dashboard/TitleBar'
-import './kinematics/solverTwin'
+import ToastHost from './dashboard/ToastHost'
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <Scene />
       <TitleBar />
       <Dashboard />
+      <ToastHost />
     </div>
   )
 }
